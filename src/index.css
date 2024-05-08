@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #5417d7;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,10 +18,10 @@ html {
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: #eee;
+  background-color: #f1f1f3;
   word-spacing: 2px;
 }
 
 Canvas {
-  height: 100vh;
+  height: 500px;
 }
