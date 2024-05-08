@@ -26,15 +26,13 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 lg:flex lg:justify-between pt-36 min-h-dvh gap-4">
-      {/* Contact Info */}
-      <div className="lg:w-1/3 bg-purple-700 p-4 rounded-md ">
+      <div className="lg:w-1/3 bg-[--primary-color] p-4 rounded-sm ">
         <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
         <p className="mb-2">Address: 123 Main Street, Rio de janeiro, Brazil</p>
         <p className="mb-2">Phone: +123 456 7890</p>
         <p className="mb-2">Email: forge@forge.com</p>
       </div>
 
-      {/* Contact Form */}
       <div className="lg:w-2/3">
         <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -104,7 +102,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-purple-500 text-white py-2 transition duration-300 hover:bg-purple-600"
+            className="p-8 rounded-sm bg-[--primary-color] text-white py-2 transition duration-300 hover:opacity-85 uppercase"
           >
             Submit
           </button>

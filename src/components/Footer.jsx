@@ -14,9 +14,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="mb-6">
             <h4 className=" text-lg font-semibold mb-4">About Us</h4>
-            <p className="">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <p>
+              We specialize in UI/UX design, development, and marketing
+              solutions.
             </p>
           </div>
           <div className="mb-6">
@@ -41,8 +41,8 @@ const Footer = () => {
           </div>
           <div className="mb-6">
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <p className="">123 Street, City</p>
-            <p className="">info@example.com</p>
+            <p className="">123 Rio de Janeiro, Brazil.</p>
+            <p className="">forge@forge.com</p>
             <p className="">123-456-7890</p>
           </div>
           <div className="mb-6">

@@ -14,13 +14,15 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 md:flex md:justify-between md:items-center ">
         <div className="flex justify-between items-center">
           <div>
-            <NavLink>
+            <NavLink className="inline-flex justify-center items-center gap-2 text-2xl font-black text-[--primary-color]">
               <img
                 src="/logo.svg"
                 alt="logo"
-                width={50}
-                className="bg-zinc-50 "
+                width={35}
+                height={35}
+                onClick={closeNavbar}
               />
+              FORGE
             </NavLink>
           </div>
           <div className="md:hidden">
@@ -30,9 +32,9 @@ const Navbar = () => {
               className=" focus:outline-none"
             >
               {isOpen ? (
-                <XCircle size={28} color="#a679f6" weight="duotone" />
+                <XCircle size={28} color="#5417d7" weight="duotone" />
               ) : (
-                <DotsThreeOutline size={28} color="#a679f6" weight="duotone" />
+                <DotsThreeOutline size={28} color="#5417d7" weight="duotone" />
               )}
             </button>
           </div>
@@ -75,7 +77,7 @@ const Navbar = () => {
             <NavLink
               to={"/contact"}
               onClick={closeNavbar}
-              className="block mt-4 md:inline-block md:mt-0  mr-4 bg-purple-700 hover:opacity-90 p-2"
+              className="block mt-4 md:inline-block md:mt-0 mr-4 bg-[--primary-color] hover:opacity-90 px-2 py-2 rounded-sm text-purple-100 text-center "
             >
               Let's Talk
             </NavLink>
