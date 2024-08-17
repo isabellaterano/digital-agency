@@ -1,88 +1,41 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
-import { OrbitControls } from "@react-three/drei";
-import backgroundImage from "../assets/images/hero.jpg"; // Import your background image
-import { Link } from "react-router-dom";
-import { ArrowUpRight } from "@phosphor-icons/react";
-
-const Sphere = ({ position, args, color }) => {
-  const ref = useRef();
-
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-
-  useFrame((state, delta, frame) => {
-    const speed = isHovered ? 1 : 0.2;
-    ref.current.rotation.y += delta * speed;
-  });
-
-  return (
-    <mesh
-      position={position}
-      ref={ref}
-      onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
-      onPointerLeave={() => setIsHovered(false)}
-      onClick={() => setIsClicked(!isClicked)}
-      scale={isClicked ? 1.2 : 1}
-    >
-      <sphereGeometry args={args} />
-      <meshStandardMaterial color={isHovered ? "#fff" : "#a78bfa"} wireframe />
-    </mesh>
-  );
-};
-
-const Scene = () => {
-  return (
-    <>
-      <directionalLight position={[0, 1, 2]} color={"#a855f7"} />
-      <ambientLight intensity={0.5} />
-      <Sphere args={[1.6, 10, 10]} color={"#a855f7"} />
-      <OrbitControls enableZoom={false} />
-    </>
-  );
-};
+import { ArrowRight } from "@phosphor-icons/react";
 
 const Hero = () => {
   return (
-    <section
-      className="min-h-dvh w-full relative flex flex-col md:flex-row gradient "
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        opacity: "95%",
-      }}
-    >
-      <div className="flex-1 md:w-1/2 relative">
-        <div className="flex flex-col   mx-3 md:ml-32 md:mt-20">
-          <h1 className="text-4xl md:text-5xl mt-24 text-center pb-8 font-bold md:text-left">
-            Elevating your digital presence,
-            <br /> one pixel at a time.
-          </h1>
-          <p className="text-xl font-bold mb-3 leading-relaxed ">
-            Welcome to our digital agency, where we specialize in crafting
-            seamless digital experiences through expert UI/UX design,
-            development, and marketing solutions.
-          </p>
-          <Link
-            to={"/contact"}
-            className="block mt-4 md:inline-block md:mt-2 mr-4 bg-[--primary-color] hover:opacity-75 px-4 py-3 rounded-sm text-purple-100 text-center w-40"
+    <section className="lg:pt-32 bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover pt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center">
+        <div className="border border-indigo-600 p-1 w-60 mx-auto rounded-full flex items-center justify-between mb-4">
+          <span className="font-inter text-xs font-medium text-gray-900 ml-3">
+            Explore how to use for brands.
+          </span>
+          <a
+            href="/services"
+            className="w-8 h-8 rounded-full flex justify-center items-center bg-indigo-600"
           >
-            Talk To Us
-            <ArrowUpRight
-              size={24}
-              color="#fff"
-              weight="duotone"
-              className="inline-flex ml-2"
-            />
-          </Link>
+            <ArrowRight className="text-white" />
+          </a>
         </div>
-      </div>
-
-      <div className="flex-1 md:w-1/2">
-        <Canvas>
-          <Scene />
-        </Canvas>
+        <h1 className="max-w-2xl mx-auto text-center font-manrope font-bold text-4xl text-gray-900 mb-5 md:text-5xl leading-[50px]">
+          Transform Your Vision into Digital
+          <span className="text-indigo-600"> Reality </span>
+        </h1>
+        <p className="max-w-sm mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-9">
+          Empowering businesses with innovative design, development, and
+          marketing solutions that drive success.
+        </p>
+        <a
+          href="/services"
+          className="w-full md:w-auto mb-14 inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full bg-indigo-600 shadow-xs hover:bg-indigo-700 transition-all duration-500 gap-2"
+        >
+          Get Started Today
+          <ArrowRight className="text-white" />
+        </a>
+        <div className="flex justify-center">
+          <img
+            src="https://pagedone.io/asset/uploads/1691054543.png"
+            alt="Dashboard image"
+          />
+        </div>
       </div>
     </section>
   );

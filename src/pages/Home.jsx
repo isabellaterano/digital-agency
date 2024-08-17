@@ -1,5 +1,5 @@
 import Brands from "../components/Brands";
-import Businness from "../components/Business";
+import Business from "../components/Business";
 import Hero from "../components/Hero";
 import Stats from "../components/Stats";
 import Testimonial from "../components/Testimonial";
@@ -8,11 +8,11 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <div className="md:mx-8 mx-2">
-        <Stats />
-        <Businness />
-        <Testimonial />
+      <div className="mx-8">
         <Brands />
+        <Stats />
+        <Business />
+        <Testimonial />
       </div>
     </div>
   );

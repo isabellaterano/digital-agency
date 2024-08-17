@@ -6,22 +6,6 @@
   --primary-color: #5417d7;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Lato", sans-serif;
-  background-color: #f1f1f3;
-  word-spacing: 2px;
-}
-
-Canvas {
-  height: 500px;
 }

@@ -5,7 +5,7 @@ import image3 from "../assets/images/user3.jpg";
 import { GreaterThan, LessThan, Quotes } from "@phosphor-icons/react";
 
 const Testimonial = () => {
-  const Testimonial = [
+  const testimonials = [
     {
       image: image,
       text: "Forge provided exceptional service, exceeding our expectations at every turn. Their team's attention to detail and commitment to excellence truly set them apart. We highly recommend Forge for any digital project.",
@@ -27,7 +27,7 @@ const Testimonial = () => {
   ];
 
   const [current, setCurrent] = useState(0);
-  const length = Testimonial.length;
+  const length = testimonials.length;
 
   const previous = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
@@ -37,48 +37,47 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="flex p-2 md:p-8 justify-center items-center min-h-dvh flex-col">
-      {" "}
-      <h1 className="text-center font-bold uppercase text-xl md:text-3xl mb-8">
-        Here's what our clients say.
+    <section className="flex justify-center items-center flex-col py-24 px-4 md:px-8">
+      <h1 className="text-center font-extrabold text-2xl md:text-4xl mb-12">
+        Here&apos;s what our clients say
       </h1>
-      <div className="bg-zinc-400 rounded-md p-8">
-        {Testimonial.map(
+      <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl w-full">
+        {testimonials.map(
           (item, index) =>
             index === current && (
               <div key={index}>
-                <div className="pb-10 flex items-start gap-4">
-                  <Quotes size={68} color="#874fe8" weight="duotone" />
-                  <h2 className="text-lg md:text-2xl font-bold">{item.text}</h2>
+                <div className="flex items-start gap-4 pb-6">
+                  <Quotes size={48} color="#874fe8" weight="duotone" />
+                  <h2 className="text-lg md:text-xl font-semibold text-gray-700">
+                    {item.text}
+                  </h2>
                 </div>
                 <div className="lg:flex justify-between items-end">
                   <div className="flex gap-4 items-center">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width={90}
+                      className="rounded-full border-4 border-purple-600 p-1"
+                    />
                     <div>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        width={110}
-                        className="rounded-full border border-purple-700 p-1"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-semibold">{item.name}</p>
-                      <span>{item.work}</span>
+                      <p className="font-bold text-gray-800">{item.name}</p>
+                      <span className="text-sm text-gray-500">{item.work}</span>
                     </div>
                   </div>
-                  <div className="flex justify-center gap-2 mt-8">
-                    <div
+                  <div className="flex justify-center gap-4 mt-8 lg:mt-0">
+                    <button
                       onClick={previous}
-                      className="bg-purple-700 p-4 cursor-pointer rounded-full hover:opacity-85"
+                      className="bg-purple-700 p-3 rounded-full text-white hover:bg-purple-800 transition-colors"
                     >
-                      <LessThan size={20} color="#fff" />
-                    </div>
-                    <div
+                      <LessThan size={20} />
+                    </button>
+                    <button
                       onClick={next}
-                      className="bg-purple-700 p-4 cursor-pointer rounded-full hover:opacity-85"
+                      className="bg-purple-700 p-3 rounded-full text-white hover:bg-purple-800 transition-colors"
                     >
-                      <GreaterThan size={20} color="#fff" />
-                    </div>
+                      <GreaterThan size={20} />
+                    </button>
                   </div>
                 </div>
               </div>

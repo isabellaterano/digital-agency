@@ -1,32 +1,70 @@
+import { motion } from "framer-motion";
+import about1 from "../assets/images/services1.jpg";
+import about2 from "../assets/images/services2.jpg";
+
 const About = () => {
   return (
-    <section className="min-h-dvh py-16 ">
-      <div className="container mx-auto ">
-        <div className="pt-16">
-          <h1 className="text-3xl font-bold tracking-tight text-center sm:text-5xl mb-8">
+    <section className="min-h-screen py-24 bg-gray-100">
+      <div className="container mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-4">
             About Us
           </h1>
-        </div>
-        <div className="max-w-4xl mx-auto text-center flex justify-center items-center flex-col">
-          <p className="text-gray-700 mb-8">
-            Forge is a digital agency dedicated to providing top-notch UI/UX
-            design, development, and marketing solutions. Our team of experts is
-            passionate about creating engaging digital experiences that help
-            businesses thrive in the online world.
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Learn more about Forge and how we help brands succeed in the digital
+            world.
           </p>
-          <p className="text-gray-700 mb-8">
-            With years of experience and a commitment to excellence, we take
-            pride in delivering innovative solutions tailored to meet the unique
-            needs of our clients. Whether you're a startup looking to make a
-            splash in the market or an established brand seeking to enhance your
-            digital presence, we're here to help you achieve your goals.
-          </p>
-          <p className="text-gray-700 mb-8">
-            At Forge, collaboration is at the heart of everything we do. We work
-            closely with our clients to understand their vision, goals, and
-            challenges, ensuring that we deliver solutions that exceed
-            expectations and drive real results.
-          </p>
+        </motion.div>
+
+        <div className="flex flex-col lg:flex-row lg:space-x-8 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="lg:w-1/2 mb-8 lg:mb-0"
+          >
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <img src={about1} alt="Our Mission" className="rounded-md mb-6" />
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                Our Mission
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                Forge is dedicated to providing exceptional UI/UX design,
+                development, and marketing solutions. Our mission is to create
+                compelling digital experiences that drive business growth and
+                engage audiences effectively.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="lg:w-1/2"
+          >
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src={about2}
+                alt="Our Approach"
+                className="rounded-md mb-6"
+              />
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                Our Approach
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                With years of expertise and a commitment to excellence, we
+                deliver tailored solutions that meet our clients unique needs.
+                Whether you&apos;re a new venture or an established brand, we
+                work closely with you to achieve outstanding results.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

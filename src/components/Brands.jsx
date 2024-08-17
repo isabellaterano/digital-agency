@@ -6,35 +6,32 @@ import brand5 from "../assets/brands/brand5.svg";
 
 const Brands = () => {
   return (
-    <section className="my-8 p-4 rounded-md">
-      <p className="text-center mb-5 font-bold">
-        a total of +1000 clients have trusted our services.
-      </p>
-      <div className="flex flex-wrap justify-center items-center gap-12">
+    <section className="mb-4 py-8 px-4">
+      <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
         <img
           src={brand1}
-          alt=""
-          className="w-32 md:w-auto md:max-w-xs lg:w-auto lg:max-w-sm"
+          alt="Brand 1"
+          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
         />
         <img
           src={brand2}
-          alt=""
-          className="w-32 md:w-auto md:max-w-xs lg:w-auto lg:max-w-sm"
+          alt="Brand 2"
+          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
         />
         <img
           src={brand3}
-          alt=""
-          className="w-32 md:w-auto md:max-w-xs lg:w-auto lg:max-w-sm"
+          alt="Brand 3"
+          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
         />
         <img
           src={brand4}
-          alt=""
-          className="w-32 md:w-auto md:max-w-xs lg:w-auto lg:max-w-sm"
+          alt="Brand 4"
+          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
         />
         <img
           src={brand5}
-          alt=""
-          className="w-32 md:w-auto md:max-w-xs lg:w-auto lg:max-w-sm"
+          alt="Brand 5"
+          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
         />
       </div>
     </section>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Envelope, MarkerCircle, Phone } from "@phosphor-icons/react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,98 +20,179 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+
     console.log("Form submitted:", formData);
-    // Reset form fields after submission
+
     setFormData({ name: "", email: "", service: "", message: "" });
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 lg:flex lg:justify-between pt-36 min-h-dvh gap-4">
-      <div className="lg:w-1/3 bg-[--primary-color] p-4 rounded-sm ">
-        <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
-        <p className="mb-2">Address: 123 Main Street, Rio de janeiro, Brazil</p>
-        <p className="mb-2">Phone: +123 456 7890</p>
-        <p className="mb-2">Email: forge@forge.com</p>
-      </div>
+    <div className="bg-gray-50 py-24  px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="bg-white p-8 rounded-lg shadow-md"
+        >
+          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
+            Get in Touch
+          </h2>
+          <p className="text-gray-600 mb-6">
+            We&apos;d love to hear from you! Whether you have a question about
+            our services or want to discuss your project, our team is ready to
+            answer all your questions.
+          </p>
+          <div className="space-y-4">
+            <ContactInfo
+              Icon={MarkerCircle}
+              title="Address"
+              detail="123 Main Street, Rio de Janeiro, Brazil"
+            />
+            <ContactInfo Icon={Phone} title="Phone" detail="+123 456 7890" />
+            <ContactInfo
+              Icon={Envelope}
+              title="Email"
+              detail="forge@forge.com"
+            />
+          </div>
+        </motion.div>
 
-      <div className="lg:w-2/3">
-        <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block mb-1 font-medium">
-              Name
-            </label>
-            <input
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="bg-white p-8 rounded-lg shadow-md"
+        >
+          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
+            Contact Us
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <FormInput
+              label="Name"
               type="text"
-              id="name"
               name="name"
               value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-purple-500"
+              handleChange={handleChange}
               required
             />
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-1 font-medium">
-              Email
-            </label>
-            <input
+            <FormInput
+              label="Email"
               type="email"
-              id="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-purple-500"
+              handleChange={handleChange}
               required
             />
-          </div>
-          <div>
-            <label htmlFor="service" className="block mb-1 font-medium">
-              Type of Service
-            </label>
-            <select
-              id="service"
+            <FormSelect
+              label="Type of Service"
               name="service"
               value={formData.service}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-purple-500"
+              handleChange={handleChange}
+              options={[
+                "Web Development",
+                "Mobile App Development",
+                "UI/UX Design",
+                "Digital Marketing",
+                "Other",
+              ]}
               required
-            >
-              <option value="">Select</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Mobile App Development">
-                Mobile App Development
-              </option>
-              <option value="UI/UX Design">UI/UX Design</option>
-              <option value="Digital Marketing">Digital Marketing</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="message" className="block mb-1 font-medium">
-              Message
-            </label>
-            <textarea
-              id="message"
+            />
+            <FormTextArea
+              label="Message"
               name="message"
               value={formData.message}
-              onChange={handleChange}
-              rows="4"
-              className="w-full px-3 py-2 border rounded-md resize-none focus:outline-none focus:border-purple-500"
+              handleChange={handleChange}
+              rows={5}
               required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="p-8 rounded-sm bg-[--primary-color] text-white py-2 transition duration-300 hover:opacity-85 uppercase"
-          >
-            Submit
-          </button>
-        </form>
+            />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              type="submit"
+              className="w-full bg-purple-600 text-white py-3 rounded-md text-lg font-semibold shadow-md hover:bg-purple-700 transition duration-300"
+            >
+              Submit
+            </motion.button>
+          </form>
+        </motion.div>
       </div>
     </div>
   );
 };
+
+const ContactInfo = ({ Icon, title, detail }) => (
+  <div className="flex items-start space-x-4">
+    <Icon className="text-purple-600 w-6 h-6 mt-1" />
+    <div>
+      <h4 className="text-lg font-semibold text-gray-800">{title}</h4>
+      <p className="text-gray-600">{detail}</p>
+    </div>
+  </div>
+);
+
+const FormInput = ({ label, type, name, value, handleChange, required }) => (
+  <div>
+    <label htmlFor={name} className="block text-gray-700 font-medium mb-2">
+      {label}
+    </label>
+    <input
+      type={type}
+      id={name}
+      name={name}
+      value={value}
+      onChange={handleChange}
+      required={required}
+      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
+  </div>
+);
+
+const FormSelect = ({
+  label,
+  name,
+  value,
+  handleChange,
+  options,
+  required,
+}) => (
+  <div>
+    <label htmlFor={name} className="block text-gray-700 font-medium mb-2">
+      {label}
+    </label>
+    <select
+      id={name}
+      name={name}
+      value={value}
+      onChange={handleChange}
+      required={required}
+      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+    >
+      <option value="">Select a service</option>
+      {options.map((option) => (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  </div>
+);
+
+const FormTextArea = ({ label, name, value, handleChange, rows, required }) => (
+  <div>
+    <label htmlFor={name} className="block text-gray-700 font-medium mb-2">
+      {label}
+    </label>
+    <textarea
+      id={name}
+      name={name}
+      value={value}
+      onChange={handleChange}
+      rows={rows}
+      required={required}
+      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+    ></textarea>
+  </div>
+);
 
 export default Contact;
