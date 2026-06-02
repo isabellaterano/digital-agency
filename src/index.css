@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* This replaces your old tailwind.config.js grid extension */
+  --grid-template-columns-20: repeat(20, minmax(0, 1fr));
+}
 
 :root {
   --primary-color: #5417d7;

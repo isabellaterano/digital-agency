@@ -6,33 +6,32 @@ import brand5 from "../assets/brands/brand5.svg";
 
 const Brands = () => {
   return (
-    <section className="mb-4 py-8 px-4">
-      <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-        <img
-          src={brand1}
-          alt="Brand 1"
-          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
-        />
-        <img
-          src={brand2}
-          alt="Brand 2"
-          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
-        />
-        <img
-          src={brand3}
-          alt="Brand 3"
-          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
-        />
-        <img
-          src={brand4}
-          alt="Brand 4"
-          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
-        />
-        <img
-          src={brand5}
-          alt="Brand 5"
-          className="w-24 md:w-32 lg:w-40 transition-transform duration-300 hover:scale-110 hover:filter-none filter grayscale"
-        />
+    <section className="py-20 border-y border-slate-200 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="text-center text-sm uppercase tracking-[0.2em] text-slate-500 mb-12">
+          Trusted by innovative companies worldwide
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-12 items-center">
+          {[brand1, brand2, brand3, brand4, brand5].map((brand, index) => (
+            <img
+              key={index}
+              src={brand}
+              alt={`Brand ${index}`}
+              className="
+            h-10
+            w-auto
+            mx-auto
+            opacity-50
+            grayscale
+            hover:opacity-100
+            hover:grayscale-0
+            transition-all
+            duration-300
+          "
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

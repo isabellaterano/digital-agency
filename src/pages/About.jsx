@@ -2,66 +2,110 @@ import { motion } from "framer-motion";
 import about1 from "../assets/images/services1.jpg";
 import about2 from "../assets/images/services2.jpg";
 
-const About = () => {
+export default function About() {
   return (
-    <section className="min-h-screen py-24 bg-gray-100">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="relative py-32 bg-slate-950 overflow-hidden">
+      {/* Glow background */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-600/20 blur-[150px]" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-4">
-            About Us
+          <span className="inline-flex px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-semibold">
+            ABOUT US
+          </span>
+
+          <h1 className="mt-6 text-4xl md:text-6xl font-black text-white">
+            We build digital experiences
+            <span className="block bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              that actually perform
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Learn more about Forge and how we help brands succeed in the digital
-            world.
+
+          <p className="mt-6 text-lg text-slate-400">
+            Forge helps brands turn ideas into scalable digital products through
+            design, development and strategy.
           </p>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row lg:space-x-8 max-w-6xl mx-auto">
+        {/* Content */}
+        <div className="grid lg:grid-cols-2 gap-10 mt-24">
+          {/* Card 1 */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:w-1/2 mb-8 lg:mb-0"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="
+              rounded-[32px]
+              overflow-hidden
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              hover:scale-[1.02]
+              transition
+              duration-500
+            "
           >
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <img src={about1} alt="Our Mission" className="rounded-md mb-6" />
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <img
+              src={about1}
+              alt="Mission"
+              className="w-full h-72 object-cover"
+            />
+
+            <div className="p-10">
+              <h2 className="text-2xl font-bold text-white mb-4">
                 Our Mission
               </h2>
-              <p className="text-gray-700 leading-relaxed">
-                Forge is dedicated to providing exceptional UI/UX design,
-                development, and marketing solutions. Our mission is to create
-                compelling digital experiences that drive business growth and
-                engage audiences effectively.
+
+              <p className="text-slate-400 leading-relaxed">
+                We help businesses grow by creating digital products that
+                combine strong design, clean engineering and data-driven
+                strategy. Our mission is simple: build experiences that convert
+                and scale.
               </p>
             </div>
           </motion.div>
 
+          {/* Card 2 */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:w-1/2"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="
+              rounded-[32px]
+              overflow-hidden
+              border
+              border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              hover:scale-[1.02]
+              transition
+              duration-500
+            "
           >
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <img
-                src={about2}
-                alt="Our Approach"
-                className="rounded-md mb-6"
-              />
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <img
+              src={about2}
+              alt="Approach"
+              className="w-full h-72 object-cover"
+            />
+
+            <div className="p-10">
+              <h2 className="text-2xl font-bold text-white mb-4">
                 Our Approach
               </h2>
-              <p className="text-gray-700 leading-relaxed">
-                With years of expertise and a commitment to excellence, we
-                deliver tailored solutions that meet our clients unique needs.
-                Whether you&apos;re a new venture or an established brand, we
-                work closely with you to achieve outstanding results.
+
+              <p className="text-slate-400 leading-relaxed">
+                We don’t do generic solutions. Every project starts with
+                strategy, followed by design systems, scalable code and
+                continuous optimization. This is how we build long-term growth,
+                not just websites.
               </p>
             </div>
           </motion.div>
@@ -69,6 +113,4 @@ const About = () => {
       </div>
     </section>
   );
-};
-
-export default About;
+}
